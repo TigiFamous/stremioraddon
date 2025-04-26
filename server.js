@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
         const apiKey = 'YOUR_TMDB_API_KEY'; // <-- Replace with your real TMDB API key
         const searchUrl = \`https://api.themoviedb.org/3/search/movie?api_key=\${apiKey}&query=\${encodeURIComponent(query)}\`;
 
-        const searchRes = await node-fetch(searchUrl);
+        const searchRes = await fetch(searchUrl);
         const searchData = await searchRes.json();
 
         const resultsDiv = document.getElementById('results');
@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
                 : 'https://via.placeholder.com/150x225?text=No+Image'; // Fallback
 
             // Fetch external IDs to get IMDb ID
-            const externalRes = await node-fetch(\`https://api.themoviedb.org/3/movie/\${tmdbId}/external_ids?api_key=\${apiKey}\`);
+            const externalRes = await fetch(\`https://api.themoviedb.org/3/movie/\${tmdbId}/external_ids?api_key=\${apiKey}\`);
             const externalData = await externalRes.json();
             const imdbId = externalData.imdb_id;
 
