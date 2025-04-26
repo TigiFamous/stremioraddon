@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();  // Initialize app
 app.get("/", (req, res) => {
     res.send(`
         <html>
