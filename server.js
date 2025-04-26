@@ -6,13 +6,15 @@ app.get("/", (req, res) => {
     res.send(`
         <html>
         <head>
-            <title>Vidsrc Movie Search</title>
+            <title>Seyhi</title>
             <style>
                 body { font-family: Arial, sans-serif; padding: 30px; background: #0f0f0f; color: #f0f0f0; }
-                h1 { color: #e91e63; }
+                h1 { color: #e91e63; text-align: center}
+                p { text-align: center}
                 input, button { padding: 10px; font-size: 16px; margin: 5px; }
+                .center {display: flex; justify-content: center}
                 .movie { margin: 10px 0; padding: 10px; background: #1f1f1f; border-radius: 8px; }
-                .button-play { margin-left: 10px; background: #4CAF50; color: white; border: none; padding: 50px 100px; border-radius: 5px; cursor: pointer; }
+                .button-play { margin-left: 10px; background: #4CAF50; color: white; border: none; padding: 20px 50px; border-radius: 5px; cursor: pointer; }
                 .button-play:hover { background: #388E3C; }
                 #player-container { margin-top: 30px; width: 100%; display: none; }
                 #video-player { width: 100%; height: 600px; border: none; }
@@ -25,16 +27,19 @@ app.get("/", (req, res) => {
             </style>
         </head>
         <body>
-            <h1>🎬 Vidsrc Movie Search</h1>
-            <p>Find movies by title and watch them directly</p>
-            <input type="text" id="searchBox" placeholder="Enter movie title..." />
-            <button onclick="searchMovies()">🔍 Search</button>
+       
+            <h1>Seyhi сайт</h1>
+            <p>Търси име на филм и пускай безплатно</p>
+            <div class="center">
+            <input type="text" id="searchBox" placeholder="Въведи заглавие..." />
+            <button onclick="searchMovies()">Търси</button>
+        </div>
             <div id="results" style="margin-top: 20px;"></div>
             
             <!-- Player container -->
             <div id="player-container">
                 <h2 id="now-playing">Now Playing: <span id="movie-title"></span></h2>
-                <iframe id="video-player" allowfullscreen></iframe>
+                <iframe id="video-player" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer"> </iframe>
             </div>
             
             <script>
@@ -71,7 +76,7 @@ app.get("/", (req, res) => {
                         resultsDiv.innerHTML = '';
                         
                         if (!searchData.results || searchData.results.length === 0) {
-                            resultsDiv.innerHTML = '<p>No movies found. 😢</p>';
+                            resultsDiv.innerHTML = '<p>Няма намерени филми. 😢</p>';
                             return;
                         }
                         
@@ -90,7 +95,7 @@ app.get("/", (req, res) => {
                                 <div style="overflow:hidden;">
                                     <b>\${title}</b> (\${year})<br/>
                                     TMDB ID: <code>\${tmdbId}</code>
-                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')"Play now</button>
+                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')"Play</button>
                                 </div>
                                 <div style="clear:both;"></div>
                             \`;
