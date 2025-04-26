@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
                 h1 { color: #e91e63; }
                 input, button { padding: 10px; font-size: 16px; margin: 5px; }
                 .movie { margin: 10px 0; padding: 10px; background: #1f1f1f; border-radius: 8px; }
-                .button-play { margin-left: 10px; background: #4CAF50; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+                .button-play { margin-left: 10px; background: #4CAF50; color: white; border: none; padding: 50px 100px; border-radius: 5px; cursor: pointer; }
                 .button-play:hover { background: #388E3C; }
                 #player-container { margin-top: 30px; width: 100%; display: none; }
                 #video-player { width: 100%; height: 600px; border: none; }
@@ -90,7 +90,7 @@ app.get("/", (req, res) => {
                                 <div style="overflow:hidden;">
                                     <b>\${title}</b> (\${year})<br/>
                                     TMDB ID: <code>\${tmdbId}</code>
-                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')"▶️ Play</button>
+                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')"Play now</button>
                                 </div>
                                 <div style="clear:both;"></div>
                             \`;
@@ -104,7 +104,7 @@ app.get("/", (req, res) => {
                 
                 function playMovie(tmdbId, title) {
                     // Set the iframe source to the vidsrc player
-                    const videoUrl = 'https://vidsrc.xyz/embed/movie?tmdb=' + tmdbId + '/';
+                    const videoUrl = 'https://vidsrc.xyz/embed/movie/' + tmdbId + '/';
                     document.getElementById('video-player').src = videoUrl;
                     document.getElementById('movie-title').textContent = title;
                     document.getElementById('player-container').style.display = 'block';
