@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
             <!-- Player container -->
             <div id="player-container">
                 <h2 id="now-playing">Now Playing: <span id="movie-title"></span></h2>
-                <iframe id="video-player" allowfullscreen sandbox="allow-scripts"> </iframe>
+                <iframe id="video-player" allowfullscreen> </iframe>
             </div>
             
             <script>
