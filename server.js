@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
                 h1 { color: #e91e63; text-align: center}
                 p { text-align: center}
                 input, button { padding: 10px; font-size: 16px; margin: 5px; }
+                inpit:focus, button:focus {outline: 3px solid red}
                 .center {display: flex; justify-content: center}
                 .movie { margin: 10px 0; padding: 10px; background: #1f1f1f; border-radius: 8px; }
                 .button-play { margin-left: 10px; background: #4CAF50; color: white; border: none; padding: 20px 50px; border-radius: 5px; cursor: pointer; }
@@ -95,7 +96,7 @@ app.get("/", (req, res) => {
                                 <div style="overflow:hidden;">
                                     <b>\${title}</b> (\${year})<br/>
                                     TMDB ID: <code>\${tmdbId}</code>
-                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')"Play</button>
+                                    <button class="button-play" onclick="playMovie(\${tmdbId}, '\${title}')">Play</button>
                                 </div>
                                 <div style="clear:both;"></div>
                             \`;
